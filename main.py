@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, json, jsonify
 from fl1 import read_file, write_file
 app = Flask(__name__)
 
@@ -31,12 +31,12 @@ def read_from_file():
 
 @app.route("/write_file", methods=['POST'])
 def write_to_file():
-  if request.content_type == 'aplication/json':
+  if request.content_type == 'application/json':
     contentJSON = request.get_json()
     write_file(contentJSON['data'])
-    return f"Add line{contentJSON['data']} to file"
+    return f"Add line {contentJSON['data']} to file"
   else:
-    return f"Invalid request{request.content_type} not allowed"
+    return f"Invalid request {request.content_type} not allowed"
 
 @app.route('/file', methods = ['GET', 'POST'])
 def filework():
@@ -47,6 +47,14 @@ def filework():
   else:
     return f"Invalid request{request.method} not allowed"
 
+@app.route('/json')
+def json_get():
+  list = []
+  list.append('value1')
+  list.append('value2')
+  list.append('value3')
+  return jsonify({'data': list})
 
+  
 if __name__ == '__main__':
   app.run(host="0.0.0.0", threaded=True, port=5000, debug=True)
