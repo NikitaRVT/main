@@ -1,0 +1,24 @@
+
+{% extends "layout.html" %}
+
+{% block saturs %}
+<html>
+    <head>
+        <script>
+            function talk() {
+                var user = document.getElementById("userBox").value;
+                document.getElementById("userBox").value = "";
+                document.getElementById("chatLog").innerHTML += user+"<br>";
+            } 
+        </script>
+        
+
+    </head>
+    <body>
+        <p id="chatLog">_CHAT_<br></p>
+        <input id="userBox" type="text" onkeydown="if (event.keyCode == 13) {talk()}">
+        <input type="Submit">
+    </body>
+</html>
+
+{% endblock %}
