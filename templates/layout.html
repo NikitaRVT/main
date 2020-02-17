@@ -8,10 +8,18 @@
       <div class="container">
         <nav>
           <ul class="menu">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/chat">Chat</a></li>
+            <li {% if active_page == 'home' %} class="active"
+                {% endif %}>
+                <a href="/home">Home</a>
+            <li {% if active_page == 'about' %} class="active"
+                {% endif %}>
+                <a href="/about">Home</a>
+            <li {% if active_page == 'contact' %} class="active"
+                {% endif %}>
+                <a href="/contact">Home</a>
+            <li {% if active_page == 'chat' %} class="active"
+                {% endif %}>
+                <a href="/chat">Home</a>
           </ul>
         </nav>
       </div>

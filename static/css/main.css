@@ -2,3 +2,7 @@ p{
   color: green;
   font: size 20;  
 }
+
+active > a{
+  color: red
+}
