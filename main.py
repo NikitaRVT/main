@@ -59,6 +59,18 @@ def json_get():
   list.append('value3')
   return jsonify({'data': list})
 
+@app.route('/calc', methods = ['POST'])
+def write_to_file2():
+  if request.content_type == 'application/json':
+    contentJSON = request.get_json()
+    sk1 = float(contentJSON['sk1'])
+    sk2 = float(contentJSON['sk2'])
+    contentJSON = request.get_json()
+    if contentJSON['darb'] == '+':
+      result = sk1 + sk2
+    write_file(f'sk: {result}')
+    return jsonify({'sk':result})
+
   
 if __name__ == '__main__':
   app.run(host="0.0.0.0", threaded=True, port=5000, debug=True)

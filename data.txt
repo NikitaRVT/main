@@ -8,3 +8,6 @@ test3111-222
 123123123123-123123123
 dadadad
 dadadad
+sk = 15.0
+<Response 17 bytes [200 OK]>
+sk: 15.0
